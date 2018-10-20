@@ -4,9 +4,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-
 app.get('/', (req, res) => {
-
 
 
 });
@@ -14,5 +12,9 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
 
 
+});
 
+
+app.listen(port, () => {
+    console.log(`Seerver is up on ${port}`);
 });
