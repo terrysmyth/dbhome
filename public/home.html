@@ -1,0 +1,86 @@
+<!-- Sections -->
+<filter></filter>
+<div class="allSections" ng-controller="categoryCtrl">
+    <!-- DEALS -->
+    <div class="sectionsWrap deals ">
+        <h2>DAILY</h2>
+        <div class="sections" ng-repeat="day in promotions ">
+            <div id="theDay">{{getDay}}</div>
+            <div class="section" ng-repeat="promotion in day " ng-if="promotion.day == getDay" ng-show="profile.filter[promotion.categories[0]] == true || profile.filter[promotion.categories[1]] == true">
+                <a href="#!/selectedCompany" ng-click="selectPromo(promotion.company, promotion.owner)">
+                    <div class="promoWrapper">
+                        <div class="promoInfo " style="background-image: url({{promotion.logoUrl}}) ">
+                            <h3>{{promotion.title}}</h3>
+                            <p>{{promotion.body}}</p>
+                        </div>
+                    </div>
+                </a>
+                <p class="promotionCompany">{{promotion.company}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- MONTHS -->
+    <div class="sectionsWrap months ">
+        <h2>MONTHLY</h2>
+        <div class="sections" ng-repeat="month in months ">
+            <div id="getMonth">{{getMonth}}</div>
+            <div class="section" ng-repeat="promotion in month " ng-if="promotion.month == getMonth" ng-show="profile.filter[promotion.categories[0]] == true || profile.filter[promotion.categories[1]] == true">
+                <a href="#!/selectedCompany" ng-click="selectPromo(promotion.company, promotion.owner)">
+                    <div class="promoWrapper">
+                        <div class="promoInfo " style="background-image: url({{promotion.bckUrl}}) ">
+                            <h3>{{promotion.title}}</h3>
+                            <p>{{promotion.body}}</p>
+                        </div>
+                    </div>
+                </a>
+                <p class="promotionCompany">{{promotion.company}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- DINING -->
+    <div class="sectionsWrap dining ">
+        <h3>Dining <a href="#!/category " ng-click="selectedCat('dining') ">(view all)</a></h3>
+        <div class="sections ">
+            <div class="section" ng-repeat="company in companies" ng-if="company.category.dining == true && company.published" ng-click="selectCompany(company)">
+                <a href="#!/selectedCompany ">
+                    <div class="sectionImages ">
+                        <div class="sectionImg " style="background-image: url({{company.backgroundUrl}}) ">
+                        </div>
+                    </div>
+                </a>
+                <div class="weirdLine ">
+                    <div class="yellow "></div>
+                </div>
+                <div class="sectionInfo ">
+                    <h4>{{company.name}}</h4>
+                    <p>{{company.phone}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- KIDS EDUCATION -->
+    <div class="sectionsWrap dining ">
+        <h3>Kids Education <a href="#!/category " ng-click="selectedCat('kidsEdu')">(view all)</a></h3>
+        <div class="sections">
+            <div class="section" ng-repeat="company in companies" ng-if="company.category.kidsEdu == true && company.published" ng-click="selectCompany(company)">
+                <a href="#!/selectedCompany ">
+                    <div class="sectionImages ">
+                        <div class="sectionImg " style="background-image: url({{company.backgroundUrl}}) ">
+                        </div>
+                    </div>
+                </a>
+                <div class="weirdLine ">
+                    <div class="yellow "></div>
+                </div>
+                <div class="sectionInfo ">
+                    <h4>{{company.name}}</h4>
+                    <p>{{company.phone}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MOBILE VERSION -->
+<div class="mobile">
+    <categories></categories>
+</div>

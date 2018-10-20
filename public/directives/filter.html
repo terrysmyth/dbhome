@@ -1,0 +1,62 @@
+<div class="filterWrap" ng-show="user" ng-class="{'active': filterCtrl }" ng-init="filterCtrl = false">
+    <div class="filter">
+        <label>
+            Dining
+            <input type="checkbox" name="" ng-model="profile.filter.dining">
+        </label>
+        <label>
+            Health
+            <input type="checkbox" name="" ng-model="profile.filter.health">
+        </label>
+        <label>
+            Kids Education
+            <input type="checkbox" name="" ng-model="profile.filter.kidsEdu">
+        </label>
+        <label>
+            Kids Sport/Fitness
+            <input type="checkbox" name="" ng-model="profile.filter.kidsSport">
+        </label>
+        <label>
+            Kids Shops
+            <input type="checkbox" name="" ng-model="profile.filter.kidsShops">
+        </label>
+        <label>
+            Adults Education
+            <input type="checkbox" name="" ng-model="profile.filter.adultsEdu">
+        </label>
+        <label>
+            Adults Fitness/Sport
+            <input type="checkbox" name="" ng-model="profile.filter.adultsSport">
+        </label>
+        <label>
+            Spa
+            <input type="checkbox" name="" ng-model="profile.filter.spa">
+        </label>
+        <label>
+            Photography/Art
+            <input type="checkbox" name="" ng-model="profile.filter.photo">
+        </label>
+        <label>
+            Pets
+            <input type="checkbox" name="" ng-model="profile.filter.pets">
+        </label>
+        <label>
+            Home Decor
+            <input type="checkbox" name="" ng-model="profile.filter.home">
+        </label>
+        <label>
+            Luxury
+            <input type="checkbox" name="" ng-model="profile.filter.luxury">
+        </label>
+        <label>
+            Community
+            <input type="checkbox" name="" ng-model="profile.filter.community">
+        </label>
+        <label>
+            News
+            <input type="checkbox" name="" ng-model="profile.filter.news">
+        </label>
+
+    </div>
+    <div class="filterLip" ng-click="filterCtrl = !filterCtrl">Filter</div>
+</div>

@@ -1,0 +1,31 @@
+<div class="superWrap" ng-if="profile.role == 'admin'" ng-controller="accountCtrl">
+    <h1>Welcome Home, {{profile.name}}</h1>
+    <div class="superInfo">
+        <!-- SITE INFO -->
+        <div class="superInfoInner">
+            <h3>Site Information</h3>
+        </div>
+        <!-- COMPANY LIST -->
+        <div class="superInfoInner">
+            <h3>All Companies/Review</h3>
+            <table style="width:100%" class="superCompanyList">
+                <tr>
+                    <th>Company Name</th>
+                    <th>Published</th>
+                </tr>
+                <tr class="superCompany" ng-repeat="company in companies">
+                    <td><a href="#!/selectedCompany" ng-click="selectCompany(company)">{{company.name}}</a>:</td>
+                    <td>
+                        <label class="switch">
+                        	<button ng-click="publish(false, company, user)" 
+                        	ng-class="{'extra': !company.published }">Unpublished</button>
+
+                        	<button ng-click="publish(true, company, user)" 
+                        	ng-class="{'extra': company.published}">Published</button>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

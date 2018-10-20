@@ -1,0 +1,104 @@
+<div class="adminWrap" ng-controller="createCompanyCtrl" ng-if="user && profile.name && !profile.full">
+    <div ng-if="profileCompanies.length == 2 && profile.role != 'admin'" class="iDK">
+        <h2>Dont know how you got here ;)</h2>
+        <p>Each profile is only allowed to submit a maximum of 2 companies. You have reached your limit!</p>
+    </div>
+    <div ng-if="profileCompanies.length != 2 || profile.role == 'admin'">
+        <!-- CREATE BUSINESS -->
+        <div class="createBusiness adminSection">
+            <div class="adminInner">
+                <h3>GENERAL:</h3>
+                <input type="text" name="" placeholder="COMPANY NAME:" ng-model="newCompany.name" ng-click="readyImg()">
+                <input type="email" name="" placeholder="COMPANY EMAIL:" ng-model="newCompany.email">
+                <input type="number" name="" placeholder="COMPANY PHONE:" ng-model="newCompany.phone">
+                <input type="text" name="" placeholder="COMPANY ADDRESS:" ng-model="newCompany.address">
+            </div>
+            <div class="adminInner">
+                <h3>ONLINE CONTENT (optional)</h3>
+                <input type="text" name="" placeholder="COMPANY WEBSITE:" ng-model="newCompany.website">
+                <input type="text" name="" placeholder="COMPANY FACEBOOK:" ng-model="newCompany.facebook">
+                <input type="text" name="" placeholder="COMPANY INSTAGRAM:" ng-model="newCompany.instagram">
+            </div>
+            <div class="adminInner">
+                <h3>ABOUT</h3>
+                <textarea placeholder="COMPANY DESCRIPTION:" ng-model="newCompany.description" maxlength="250"></textarea>
+            </div>
+            <div class="adminInner">
+                <h3>CATEGORY</h3>
+                <p>Select a maximum of two:</p>
+                <p>**If your category has a subcategory, please choose one.</p>
+                <div class="categories">
+                    <label>
+                        Eat & Drink
+                        <input type="checkbox" name="" value="dining" ng-model="newCompany.category.dining" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Spa & Beauty
+                        <input type="checkbox" name="" value="spa" ng-model="newCompany.category.spa" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Health
+                        <input type="checkbox" name="" value="health" ng-model="newCompany.category.health" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Kids Education
+                        <input type="checkbox" name="" value="kidsEdu" ng-model="newCompany.category.kidsEdu" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Kids Sport/Activities
+                        <input type="checkbox" name="" value="kidsSport" ng-model="newCompany.category.kidsSport" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Kids Shop/Services
+                        <input type="checkbox" name="" value="kidsShop" ng-model="newCompany.category.kidsShop" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Photography & Art
+                        <input type="checkbox" name="" value="photo" ng-model="newCompany.category.photo" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Adults Education
+                        <input type="checkbox" name="" value="adultsEdu" ng-model="newCompany.category.adultsEdu" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Adults Sport/Fitness
+                        <input type="checkbox" name="" value="adultsSport" ng-model="newCompany.category.adultsSport" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Pets
+                        <input type="checkbox" name="" value="pets" ng-model="newCompany.category.pets" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Home services & Decor
+                        <input type="checkbox" name="" value="home" ng-model="newCompany.category.home" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Luxury
+                        <input type="checkbox" name="" value="luxury" ng-model="newCompany.category.luxury" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        Community
+                        <input type="checkbox" name="" value="community" ng-model="newCompany.category.community" onclick="checkboxes()" class="checkbox">
+                    </label>
+                    <label>
+                        News
+                        <input type="checkbox" name="" value="news" ng-model="newCompany.category.news" onclick="checkboxes()" class="checkbox">
+                    </label>
+                </div>
+            </div>
+            <eat ng-show="newCompany.category.dining"></eat>
+            <spa ng-show="newCompany.category.spa"></spa>
+            <kidsedu ng-show="newCompany.category.kidsEdu"></kidsedu>
+            <kidssport ng-show="newCompany.category.kidsSport"></kidssport>
+            <photo ng-show="newCompany.category.photo"></photo>
+            <adultsedu ng-show="newCompany.category.adultsEdu"></adultsedu>
+            <adultssport ng-show="newCompany.category.adultsSport"></adultssport>
+            <uploadphoto></uploadphoto>
+        </div>
+        <div class="adminSubmission">
+            <p>**Upon submission you are agreeing to the Terms & Conditions of DB HOME listings. Your submission will be reviewed before published. Thank you.</p>
+            <h3 ng-hide="newCompany.name && newCompany.phone && newCompany.email && newCompany.description && newCompany.category">Please fill in more details before submission.</h3>
+            <button ng-show="newCompany.name && newCompany.phone && newCompany.email && newCompany.description && newCompany.category" ng-click="saveCompany(newCompany)">SUBMIT COMPANY</button>
+        </div>
+    </div>
+</div>

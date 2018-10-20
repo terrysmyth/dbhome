@@ -1,0 +1,55 @@
+<div class="categoryPageWrap" ng-controller="categoryCtrl" ng-class="{'extra': subCategories != null}">
+	<div class="miniNav" ng-show="subCategories != null">
+		<p ng-click="goTo('category'+$index)" ng-repeat="category in subCategories">{{category.show}}</p>
+	</div>
+    <div class="allSections">
+        <div class="sectionsWrap" ng-repeat="category in subCategories" id="category{{$index}}">
+            <h3>{{category.show}}</h3>
+            <div class="sections">
+                <div class="section" 
+                ng-repeat="company in companies " 
+                ng-if="company.category[chosenCategory] == true && company.subCategory[chosenCategory] == category.original && company.published" 
+                ng-click="selectCompany(company)">
+                    <a href="#!/selectedCompany">
+                        <div class="sectionImages">
+                            <div class="sectionImg" style="background-image: url({{company.backgroundUrl}})">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="weirdLine">
+                        <div class="yellow"></div>
+                    </div>
+                    <div class="sectionInfo">
+                        <h4>{{company.name}}</h4>
+                        <p>{{company.phone}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- IF NO SUBCAT -->
+        <div class="sectionsWrap" ng-if="subCategories == null">
+            <h3>{{chosenCategory}}</h3>
+            <div class="sections">
+                <div class="section" 
+                ng-repeat="company in companies " 
+                ng-if="company.category[chosenCategory] == true" 
+                ng-click="selectCompany(company)">
+                    <a href="#!/selectedCompany">
+                        <div class="sectionImages">
+                            <div class="sectionLogo" style="background-image: url({{company.logoUrl}})"></div>
+                            <div class="sectionImg" style="background-image: url({{company.backgroundUrl}})">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="weirdLine">
+                        <div class="yellow"></div>
+                    </div>
+                    <div class="sectionInfo">
+                        <h4>{{company.name}}</h4>
+                        <p>{{company.phone}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

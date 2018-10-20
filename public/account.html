@@ -1,0 +1,149 @@
+<div class="accountWrap" ng-controller="accountCtrl">
+    <!-- NOT SIGNED IN -->
+    <div class="notSignedIn" ng-if="!user">
+        <h2>Sign-in/Sign-up!</h2>
+        <div class="signinWrap">
+            <p>We use google to sign in! So no need to create passwords or try remember your email!</p>
+            <button id="googleLogin" ng-click="googleLogin()">
+                <img src="images/google.png"> Sign-in/Sign-up
+            </button>
+        </div>
+    </div>
+    <!-- SIGNED IN -->
+    <div class="enterDetails" ng-show="user && !profile.name">
+        <h2>Welcome!</h2>
+        <input type="text" name="" placeholder="Your Name" ng-model="newProfile.name">
+        <input type="email" name="" placeholder="Personal Email" ng-model="newProfile.email">
+        <input type="number" name="" placeholder="Personal Phone" ng-model="newProfile.phone">
+        <input type="text" name="" placeholder="Company Name" ng-model="newProfile.company">
+        <button ng-click="createProfile(newProfile, user)">Submit Profile</button>
+    </div>
+    <!-- Fully Signed in -->
+    <div class="enterDetails" ng-show="user && profile.name" init="edit1 = false">
+        <h2>Welcome, {{profile.name}}</h2>
+        <div class="profileInfoWrap">
+            <div class="profileInfoInner">
+                <p class="editBtn" ng-click="edit1 = !edit1" ng-show="!edit1">EDIT</p>
+                <p class="editBtn" ng-click="edit1 = !edit1" ng-show="edit1">SAVE</p>
+                <h3>Info:</h3>
+                <p ng-show="!edit1"><span>Account Owner: </span>{{profile.name}}</p>
+                <input ng-show="edit1" type="text" name="" ng-model="profile.name">
+                <p ng-show="!edit1"><span>Account Email: </span>{{profile.email}}</p>
+                <input ng-show="edit1" type="email" name="" ng-model="profile.email">
+                <p ng-show="!edit1"><span>Account Phone: </span>{{profile.phone}}</p>
+                <input ng-show="edit1" type="number" name="" ng-model="profile.phone">
+                <p ng-show="!edit1"><span>Account Company: </span>{{profile.company}}</p>
+                <input ng-show="edit1" type="text" name="" ng-model="profile.company">
+            </div>
+            <div class="profileInfoInner">
+                <h3>Companies:</h3>
+                <p ng-hide="profileCompanies.length > 0">You have no companies associated with your account yet.</p>
+                <p ng-show="profileCompanies.length == 1">You have 1 company listed. You can have a maximum of 2 companies on one profile.</p>
+                <p ng-show="profileCompanies.length == 2">You have reached the maximum of 2 companies on one profile.</p>
+                <p>If there is a company listed on DBHOME that belongs to you but is not under your account, please contact us so we can help move the company to your account. Thank you.</p>
+                <div class="profileCompHolder">
+                    <a href="#!/selectedCompany" ng-repeat="company in profileCompanies">
+                        <div class="company filled" style="background-image: url({{company.logoUrl}});" ng-click="selectCompany(company)"></div>
+                        <p ng-show="company.published" class="review">published</p>
+                        <p ng-show="!company.published" class="review red">in review</p>
+                    </a>
+                    <div ng-if="profileCompanies.length != 2 || profile.role == 'admin'">
+                        <a href="#!/admin">
+                            <div class="company c1">
+                                <i class="material-icons">add</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- DAILY DEALS -->
+            <div class="profileInfoInner">
+                <h3>Company Daily Deals</h3>
+                <div class="dealsWrapper" ng-repeat="day in promotions">
+                    <div ng-repeat="promo in day" ng-if="promo.owner == user.uid" class="currentDeals">
+                        <p>{{promo.company}}</p>
+                        <p>{{promo.day}}</p>
+                        <p>{{promo.title}}</p>
+                        <button ng-click="deletePromo(promo,user)">Delete</button>
+                    </div>
+                </div>
+                <h4>Create Daily Promotion</h4>
+                <div class="dealCreator">
+                    <label>
+                        Choose a day: (If you currently have a promotion on the same day, it will be over written.)
+                        <select ng-model="newPromo.day">
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </label>
+                    <label>
+                        Choose a company:
+                        <select ng-model="newPromo.company">
+                            <option ng-repeat="company in profileCompanies" ng-value="{{company}}">{{company.name}}</option>
+                        </select>
+                    </label>
+                    <label>
+                        Title:
+                        <input ng-model="newPromo.title" type="text" name="" placeholder="Title of Promotion" maxlength="15">
+                    </label>
+                    <label>
+                        Info:
+                        <textarea ng-model="newPromo.body" placeholder="" maxlength="50"></textarea>
+                    </label>
+                    <button ng-click="createPromo(newPromo, user)" ng-show="newPromo.day && newPromo.company && newPromo.title && newPromo.body">Create Daily Deal</button>
+                </div>
+            </div>
+            <div class="profileInfoInner">
+                <h3>Monthly Deals</h3>
+                <div class="dealsWrapper" ng-repeat="month in months">
+                    <div ng-repeat="promo in month" ng-if="promo.owner == user.uid" class="currentDeals">
+                        <p>{{promo.company}}</p>
+                        <p>{{promo.month}}</p>
+                        <p>{{promo.title}}</p>
+                        <button ng-click="deleteMonth(promo,user)">Delete</button>
+                    </div>
+                </div>
+                <h4>Create Monthly Deal:</h4>
+                <div class="dealCreator">
+                    <label>
+                        Choose a Month: (If you currently have a promotion on the same month, it will be over written.)
+                        <select ng-model="newMonth.month">
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </label>
+                    <label>
+                        Choose a company:
+                        <select ng-model="newMonth.company">
+                            <option ng-repeat="company in profileCompanies" ng-value="{{company}}">{{company.name}}</option>
+                        </select>
+                    </label>
+                    <label>
+                        Title:
+                        <input ng-model="newMonth.title" type="text" name="" placeholder="Title of Promotion" maxlength="25">
+                    </label>
+                    <label>
+                        Info:
+                        <textarea ng-model="newMonth.body" placeholder="" maxlength="80"></textarea>
+                    </label>
+                    <button ng-click="createMonth(newMonth, user)" ng-show="newMonth.month && newMonth.company && newMonth.title && newMonth.body">Create Monthly Deal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

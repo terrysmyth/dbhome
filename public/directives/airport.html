@@ -1,0 +1,52 @@
+<div class="ferrySchedule" ng-class="{'active': airportCtrl }" ng-controller="airportCtrl">
+    <div class="currentTime">
+        <p>Current time: <span id="airportTime"></span></p>
+    </div>
+    <div class="ferryWrapper">
+        <div class="ferryWrap db">
+            <div class="titles">
+                <h2>From DB</h2>
+            </div>
+            <div class="ferryTime next"><span id="nextAirport"></span></div>
+            <div class="ferryTime next1"><span id="nextAirport2"></span></div>
+            <div class="ferryTime next2"><span id="nextAirport3"></span></div>
+            <div class="ferryTime next3"><span id="nextAirport4"></span></div>
+            <div class="ferryTime next4"><span id="nextAirport5"></span></div>
+            <div class="titles">
+                <p class="from">DB</p>
+                <p class="untilNext">UNTIL NEXT:</p>
+                <h4><span id="airportNextDb"></span>mins</h4>
+            </div>
+        </div>
+        <div class="ferryWrap central">
+            <div class="titles">
+                <h2>From Airport</h2>
+            </div>
+            <div class="ferryTime next"><span id="nextAirportC"></span></div>
+            <div class="ferryTime next1"><span id="nextAirportC2"></span></div>
+            <div class="ferryTime next2"><span id="nextAirportC3"></span></div>
+            <div class="ferryTime next3"><span id="nextAirportC4"></span></div>
+            <div class="ferryTime next4"><span id="nextAirportC5"></span></div>
+            <div class="titles">
+                <p class="from">HKIA</p>
+                <p class="untilNext">UNTIL NEXT:</p>
+                <h4><span id="airportNextC"></span>mins</h4>
+            </div>
+        </div>
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+    <div class="extraInfo">
+        *B: Bus will observe bus stops at Tung Chung and Auberge Discovery Bay HK. Passengers returning from Tung Chung may board at bus stop of DB01R at Tung Chung. Fare $35.
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+    <div class="timeTableWrap">
+        <div class="fullTT dbTT">
+            <h3>FROM DB</h3>
+            <table id="airportDBTT"></table>
+        </div>
+        <div class="fullTT cntrlTT">
+            <h3>FROM HKIA</h3>
+            <table id="airportCNTRLTT"></table>
+        </div>
+    </div>
+</div>

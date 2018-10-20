@@ -1,0 +1,93 @@
+<div class="selectedWrap">
+    <div class="overlay"></div>
+    <div class="selectedInner" ng-init="edit = false">
+        <p class="editBtn" ng-click="edit = !edit" ng-show="!edit && selectedCompany.owner == user.uid">EDIT</p>
+        <p class="editBtn" ng-click="edit = !edit" ng-show="edit && selectedCompany.owner == user.uid">FORGET</p>
+        <h3>DB<span>HOME</span></h3>
+        <h2>{{selectedCompany.name}}</h2>
+        <div ng-hide="edit">
+            <h3>Contact:</h3>
+            <p>Address: {{selectedCompany.address}}</p>
+            <p>Tel: <a href="tel:{{selectedCompany.phone}}">{{selectedCompany.phone}}</a></p>
+            <p>Email: <a href="mailto:{{selectedCompany.email}}">{{selectedCompany.email}}</a></p>
+            <div id="selectedLogo" class="selectedLogo" style="background-image: url({{selectedCompany.logoUrl}})">
+                <label class="editImgBtn" ng-click="readyLogo()"
+                ng-if="selectedCompany.owner == user.uid">+
+                    <input type="file" id="newLogo" hidden>
+                </label>
+            </div>
+            <label class="commitBtn" id="commitLogo" style="display: none;" ng-click="saveLogo(selectedCompany, user)">Commit Change</label>
+        </div>
+        <div class="changes" ng-show="edit" ng-if="selectedCompany.owner == user.uid">
+            <label>
+                Company Name:
+            </label>
+            <label>
+                Company Address:
+                <input type="text" placeholder="{{selectedCompany.address}}" name="" ng-model="changeCompany.address">
+            </label>
+            <label>
+                Company Phone:
+                <input type="number" placeholder="{{selectedCompany.phone}}" name="" ng-model="changeCompany.phone">
+            </label>
+            <label>
+                Company Email:
+                <input type="email" placeholder="{{selectedCompany.email}}" name="" ng-model="changeCompany.email">
+            </label>
+            <button ng-show="changeCompany" ng-click="updateCompany(changeCompany, selectedCompany, user)">Update</button>
+        </div>
+    </div>
+    <div class="selectedInner" ng-init="edit1 = false">
+        <p class="editBtn" ng-click="edit1 = !edit1" ng-show="!edit1 && selectedCompany.owner == user.uid">EDIT</p>
+        <p class="editBtn" ng-click="edit1 = !edit1" ng-show="edit1 && selectedCompany.owner == user.uid">FORGET</p>
+        <div ng-hide="edit1">
+            <h3>Info:</h3>
+            <p>{{selectedCompany.description}}</p>
+            <h3>Online:</h3>
+            <p>Website: <a href="http://{{selectedCompany.website}}" target="_blank">{{selectedCompany.website}}</a></p>
+            <p>Facebook: <a href="http://www.facebook.com{{selectedCompany.facebook}}" target="_blank">{{selectedCompany.facebook}}</a></p>
+            <p>Instagram: {{selectedCompany.instagram}}</p>
+        </div>
+        <div class="changes" ng-show="edit1" ng-if="selectedCompany.owner == user.uid">
+            <label>
+                Company Description:
+                <textarea placeholder="{{selectedCompany.description}}" ng-model="changeCompany.description"></textarea>
+            </label>
+            <label>
+                Company Website:
+                <input type="text" placeholder="{{selectedCompany.website}}" name="" ng-model="changeCompany.website">
+            </label>
+            <label>
+                Company Facebook:
+                <input type="text" placeholder="{{selectedCompany.facebook}}" name="" ng-model="changeCompany.facebook">
+            </label>
+            <label>
+                Company Instagram:
+                <input type="text" placeholder="{{selectedCompany.instagram}}" name="" ng-model="changeCompany.instagram">
+            </label>
+            <button ng-show="changeCompany" ng-click="updateCompany(changeCompany, selectedCompany, user)">Update</button>
+        </div>
+    </div>
+    <div id="selectedBck" class="selectedInner" style="background-image: url({{selectedCompany.backgroundUrl}})">
+        <label class="editImgBtn"
+        ng-if="selectedCompany.owner == user.uid" 
+        ng-click="readyLogo()">+
+            <input type="file" id="newBck" hidden>
+        </label>
+        <label class="commitBtn" id="commitBck" style="display: none;" ng-click="saveBck(selectedCompany, user)">Commit Change</label>
+    </div>
+</div>
+<div class="selectedWrap" ng-if="selectedCompany.promotions">
+    <div class="selectedInner promo">
+        <h3>Deals/Promotions:</h3>
+        <div class="selectedPromoWrap">
+            <div class="selectedDayWrap" ng-repeat="day in selectedCompany.promotions">
+                <h4>{{day.day}}</h4>
+                <h5>{{day.title}}</h5>
+                <p>{{day.body}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="deleteBtn" ng-click="deleteCompany(selectedCompany, user, profile)"
+ng-show="selectedCompany.owner == user.uid || profile.role == 'admin'">Delete Company</div>

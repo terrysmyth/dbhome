@@ -1,0 +1,52 @@
+<div class="ferrySchedule" ng-class="{'active': transCtrl }" ng-controller="ferryCtrl">
+    <div class="currentTime">
+        <p>Current time: <span id="time"></span></p>
+    </div>
+    <div class="ferryWrapper">
+        <div class="ferryWrap db">
+            <div class="titles">
+                <h2>From DB</h2>
+            </div>
+            <div class="ferryTime next"><span id="nextFerry"></span></div>
+            <div class="ferryTime next1"><span id="nextFerry2"></span></div>
+            <div class="ferryTime next2"><span id="nextFerry3"></span></div>
+            <div class="ferryTime next3"><span id="nextFerry4"></span></div>
+            <div class="ferryTime next4"><span id="nextFerry5"></span></div>
+            <p class="warning"><span>**00:50</span>
+                <br> Fri & Sat Late Hours </p>
+            <div class="titles">
+                <p class="from">DB</p>
+                <p class="untilNext">UNTIL NEXT:</p>
+                <h4><span id="untilNextDb"></span>mins</h4>
+            </div>
+        </div>
+        <div class="ferryWrap central">
+            <div class="titles">
+                <h2>From CENTRAL</h2>
+            </div>
+            <div class="ferryTime next"><span id="nextFerryC"></span></div>
+            <div class="ferryTime next1"><span id="nextFerryC2"></span></div>
+            <div class="ferryTime next2"><span id="nextFerryC3"></span></div>
+            <div class="ferryTime next3"><span id="nextFerryC4"></span></div>
+            <div class="ferryTime next4"><span id="nextFerryC5"></span></div>
+            <p class="warning"><span>**01:30</span>
+                <br> Fri & Sat Late Hours </p>
+            <div class="titles">
+                <p class="from">CNTRL</p>
+                <p class="untilNext">UNTIL NEXT:</p>
+                <h4><span id="untilNextC"></span>mins</h4>
+            </div>
+        </div>
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+    <div class="timeTableWrap">
+        <div class="fullTT dbTT">
+            <h3>FROM DB</h3>
+            <table id="fromDBTT"></table>
+        </div>
+        <div class="fullTT cntrlTT">
+            <h3>FROM CNTRL</h3>
+            <table id="fromCNTRLTT"></table>
+        </div>
+    </div>
+</div>

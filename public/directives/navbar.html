@@ -1,0 +1,10 @@
+<div class="introTitle" ng-class="{'active': navCtrl }">
+	<i class="material-icons closeNavBtn" ng-click="navCtrl = !navCtrl">clear</i>
+    <a href="#!/home" ng-click="navCtrl = !navCtrl"><h2>DBHOME</h2></a>
+	<a href="#!/categories" ng-click="navCtrl = !navCtrl">Categories</a>
+	<a href="#!/home" ng-click="navCtrl = !navCtrl">News</a>
+	<a href="#!/home" ng-click="navCtrl = !navCtrl">Contact</a>
+	<a href="#" disable ng-show="user" ng-click="logout()">Log Out</a>
+    <a href="#!/account" class="navAccount" ng-click="navCtrl = !navCtrl">My Account</a>
+    <a href="#!/super" ng-if="profile.role == 'admin'" ng-click="navCtrl = !navCtrl">Super</a>
+</div>
