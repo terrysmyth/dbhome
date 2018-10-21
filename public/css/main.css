@@ -1886,7 +1886,7 @@ blockquote {
     bottom: 0;
     background-color: rgba(0,0,0,0.8);
     padding: 20px 5px;
-    z-index: 50;
+    z-index: 130;
     overflow: auto;
 }
 
@@ -2044,6 +2044,23 @@ blockquote {
 
     .sectionsWrap {
         height: 75%;
+    }
+
+    .transport {
+        width: 50px;
+        height: 50px;
+    }
+
+    .transport i {
+        font-size: 22px;
+    }
+
+    .sectionsWrap.months h2 {
+        font-size: 70px;
+    }
+
+    .sectionsWrap.deals h2 {
+        font-size: 70px;
     }
 }
 
