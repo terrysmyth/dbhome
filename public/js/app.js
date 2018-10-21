@@ -1,6 +1,6 @@
 angular.module("myApp", [])
 
-var app = angular.module("myApp", ["ngRoute", 'firebase', "ui.router"]);
+var app = angular.module("myApp", ["ngRoute", 'firebase', "ui.router", "simditor"]);
 
 app.directive('navbar', function() {
     return {
@@ -142,6 +142,24 @@ app.config(function($routeProvider) {
         })
         .when("/category", {
             templateUrl: "category.html",
+        })
+        .when("/contact", {
+            templateUrl: "contact.html",
+        })
+        .when("/thankyou", {
+            templateUrl: "thankyou.html",
+        })
+        .when("/newsLanding", {
+            templateUrl: "newsLanding.html",
+        })
+        .when("/news", {
+            templateUrl: "news.html",
+        })
+        .when("/addStory", {
+            templateUrl: "addStory.html",
+        })
+        .when("/property", {
+            templateUrl: "property.html",
         })
         .otherwise({
             redirectTo: '/home'

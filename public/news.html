@@ -1,0 +1,11 @@
+<div class="newsLandingWrap" ng-controller="newsCtrl">
+    <div class="articleWrap">
+        <h2>{{selectedArticle.title}}</h2>
+        <h3>{{selectedArticle.subtitle}}</h3>
+        <p>Published: {{selectedArticle.date}} by {{selectedArticle.author}}</p>
+        <div class="articleImg" style="background-image: url({{selectedArticle.backgroundUrl}});"></div>
+        <div ng-bind-html="selectedArticle.body"></div>
+        <p class="notice">**All views and opinions in this articles do not reflect the views and opinions of those at DB HOME. This article is written by a user of DB HOME and not by DB HOME itself. If there is an issue with this article you wish to address, please dont hesitate to email us at <a href="mailto:info@dbhome.asia?subject=Article Report: {{selectedArticle.title}}">info@dbhome.asia</a></p>
+    </div>
+    <button class="deleteBtn" ng-click="deleteArticle(selectedArticle, user)" ng-show="selectedArticle.owner == user.uid">Delete Article</button>
+</div>

@@ -1,5 +1,3 @@
-
-
 // SHOW/HIDE CATEGORIES (genius)
 const categories = document.getElementsByClassName("checkbox");
 let categoryList = [];
@@ -30,3 +28,23 @@ const checkboxes = () => {
     console.log(categoryList);
 
 }
+
+const loadSpring = () => {
+    const honeyPot = document.getElementById("honey");
+    const submit = document.getElementById("submit");
+
+}
+const spring = () => {
+    submit.disabled = true;
+}
+
+// FILTER WRAP 
+setInterval(() => {
+    console.log("ASD")
+    var filterWrap = document.getElementById("filterWrap");
+    if (window.innerWidth > 800) {
+        filterWrap.style.top = "-" + (filterWrap.clientHeight - 50) + "px";
+    } else {
+        filterWrap.style.top = "-" + (filterWrap.clientHeight) + "px";
+    }
+}, 1000);

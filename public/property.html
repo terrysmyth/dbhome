@@ -1,0 +1,88 @@
+<div class="propertyWrap" ng-controller="propertyCtrl">
+    <div class="realestate">
+        <h2>DB PROPERTY</h2>
+        <h3>All listings are brought to you by <span>Headland Homes</span>.</h3>
+        <p><a href="https://www.hongkonghomes.com" target="_blank">Please contact them on their website, here.</a></p>
+    </div>
+    <div class="propertyFilter">
+        <label>
+            For sale:
+            <input type="checkbox" name="" ng-model="propertyFilter.sale">
+        </label>
+        <label>
+            For rent:
+            <input type="checkbox" name="" ng-model="propertyFilter.rent">
+        </label>
+        <label>
+            For bedrooms:
+            <select ng-model="propertyFilter.bedrooms">
+                <option value="0">Studio</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </label>
+        <label>
+            For bathrooms:
+            <select ng-model="propertyFilter.bathrooms">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </label>
+    </div>
+    <div class="property">
+        <div class="propertyItem" ng-repeat="property in allProperty | limitTo:50" ng-show="
+        (property.gsx$bedrooms.$t == $parent.propertyFilter.bedrooms ||
+                 property.gsx$bathrooms.$t == $parent.propertyFilter.bathrooms) 
+                 && 
+        (($parent.propertyFilter.sale==true && property.gsx$sell.$t != '$0') ||
+                ($parent.propertyFilter.rent==true && property.gsx$rent.$t != '$0'))" ng-click="selectProperty(property)">
+            <div class="propertyImg" style="background-image:url({{property.gsx$img1.$t}})">
+                <div class="propertyPrices">
+                    <p ng-show="property.gsx$sell.$t != '$0'">Sale: HK{{property.gsx$sell.$t}}</p>
+                    <p ng-show="property.gsx$rent.$t != '$0'">Rent: HK{{property.gsx$rent.$t}}</p>
+                </div>
+            </div>
+            <div class="propertyInfo">
+                <h3>{{property.gsx$name.$t}}</h3>
+                <p>Saleable Area: {{property.gsx$saleablearea.$t}}sqft</p>
+                <p>Gross Area: {{property.gsx$size.$t}}sqft</p>
+                <p><i class="material-icons">hotel</i>{{property.gsx$bedrooms.$t}}</p>
+                <p><i class="material-icons">wc</i>{{property.gsx$bathrooms.$t}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- SELECTED PROPERTY -->
+    <div class="casing" ng-class="{'active': openProperty }" ng-click="openProperty = false">
+        <div class="showProperty">
+            <div class="propertyImg" style="background-image:url({{selectedProperty.gsx$img1.$t}})">
+                <i class="material-icons closeBtn" ng-click="openProperty = false">clear</i>
+                <div class="propertyPrices">
+                    <p ng-show="selectedProperty.gsx$sell.$t != '$0'">Sale: HK{{selectedProperty.gsx$sell.$t}}</p>
+                    <p ng-show="selectedProperty.gsx$rent.$t != '$0'">Rent: HK{{selectedProperty.gsx$rent.$t}}</p>
+                </div>
+            </div>
+            <div class="propertyInfo">
+                <h3>{{selectedProperty.gsx$name.$t}}</h3>
+                <p>Saleable Area: {{selectedProperty.gsx$saleablearea.$t}}sqft</p>
+                <p>Gross Area: {{selectedProperty.gsx$size.$t}}sqft</p>
+                <p><i class="material-icons">hotel</i>{{selectedProperty.gsx$bedrooms.$t}}</p>
+                <p><i class="material-icons">wc</i>{{selectedProperty.gsx$bathrooms.$t}}</p>
+            </div>
+            <div class="propertyImages">
+                <div class="img1" style="background-image:url({{selectedProperty.gsx$img2.$t}})"></div>
+                <div class="img1" style="background-image:url({{selectedProperty.gsx$img3.$t}})"></div>
+                <div class="img1" style="background-image:url({{selectedProperty.gsx$img4.$t}})"></div>
+                <div class="img1" style="background-image:url({{selectedProperty.gsx$img5.$t}})"></div>
+            </div>
+            <i class="material-icons closeBtn" ng-click="openProperty = false">clear</i>
+        </div>
+    </div>
+</div>

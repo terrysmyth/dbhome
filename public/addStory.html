@@ -1,0 +1,15 @@
+<div class="addStoryWrap" ng-controller="newsCtrl">
+	<h2>Create a new story</h2>
+	<div class="addStory">
+		<input type="text" name="" placeholder="TITLE:" ng-model="newStory.title" 
+		ng-click="readyImg()">
+		<input type="text" name="" placeholder="SUBTITLE:" ng-model="newStory.subtitle">
+	</div>
+    <div simditor ng-model="newStory.article" id="editable"></div>
+    <label class="articleImgBtn" ng-show="newStory.title">
+    	Add Photo +
+    	<input type="file" name="" id="file1" hidden>
+    </label>
+    <div id="previewImg" ng-show="newStory.title"></div>
+	<button class="articleImgBtn" ng-click="createArticle(newStory, profile, user)" ng-show="newStory.title && newStory.subtitle && newStory.article">Submit Story</button>
+</div>

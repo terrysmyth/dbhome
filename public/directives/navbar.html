@@ -1,10 +1,13 @@
 <div class="introTitle" ng-class="{'active': navCtrl }">
-	<i class="material-icons closeNavBtn" ng-click="navCtrl = !navCtrl">clear</i>
-    <a href="#!/home" ng-click="navCtrl = !navCtrl"><h2>DBHOME</h2></a>
-	<a href="#!/categories" ng-click="navCtrl = !navCtrl">Categories</a>
-	<a href="#!/home" ng-click="navCtrl = !navCtrl">News</a>
-	<a href="#!/home" ng-click="navCtrl = !navCtrl">Contact</a>
+	<i class="material-icons closeNavBtn" ng-click="navCtrl = false">clear</i>
+    <a href="#!/home" ng-click="navCtrl = false"><h2>DBHOME</h2></a>
+	<a href="#!/categories" ng-click="navCtrl = false">Categories</a>
+	<a href="#!/newsLanding" ng-click="navCtrl = false">News</a>
+	<a href="#!/contact" ng-click="navCtrl = false">Contact</a>
+	<a href="#!/property" ng-click="navCtrl = false">Property</a>
 	<a href="#" disable ng-show="user" ng-click="logout()">Log Out</a>
-    <a href="#!/account" class="navAccount" ng-click="navCtrl = !navCtrl">My Account</a>
-    <a href="#!/super" ng-if="profile.role == 'admin'" ng-click="navCtrl = !navCtrl">Super</a>
+    <a href="#!/account" class="navAccount" ng-click="navCtrl = false">My Account</a>
+    <a href="#!/super" ng-if="profile.role == 'admin'" ng-click="navCtrl = false">Super</a>
+
+    <a href="#!/addStory" ng-repeat="company in profileCompanies" ng-if="company.category.news == true">Add Story</a>
 </div>

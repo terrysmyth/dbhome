@@ -1,0 +1,13 @@
+<div class="newsLandingWrap" ng-controller="newsCtrl">
+	<h2>DB NEWS</h2>
+	<div class="newsLandingInner">
+		<a href="#!/news" ng-click="selectArticle(article)" ng-repeat="article in articles | limitTo: 20">
+			<div class="newLWrap" style="background-image: url({{article.backgroundUrl}})">
+				<div class="newLInfo">
+					<h3>{{article.title}}</h3>
+					<p>{{article.date}} by {{article.author}}</p>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
