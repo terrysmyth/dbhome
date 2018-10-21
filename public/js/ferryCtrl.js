@@ -1,7 +1,6 @@
  angular.module("myApp")
      .controller('ferryCtrl', function($rootScope, $scope, $location, $firebaseObject, $window) {
 
-         window.onload = function() {
              var today;
              var h;
              var m;
@@ -681,6 +680,5 @@
              document.getElementById('fromCNTRLTT').innerHTML = fromCNTRLTT;
 
 
-         }
 
      }) //END OF CNTRL

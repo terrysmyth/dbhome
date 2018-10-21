@@ -40,7 +40,6 @@ const spring = () => {
 
 // FILTER WRAP 
 setInterval(() => {
-    console.log("ASD")
     var filterWrap = document.getElementById("filterWrap");
     if (window.innerWidth > 800) {
         filterWrap.style.top = "-" + (filterWrap.clientHeight - 50) + "px";
