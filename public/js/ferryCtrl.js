@@ -27,7 +27,7 @@
                  m = checkTime(m);
                  s = checkTime(s);
                  currentTime = h + "" + m + "";
-                 document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+                 document.getElementById('time1').innerHTML = h + ":" + m + ":" + s;
                  t = setTimeout(function() {
                      startTime()
                  }, 500);
