@@ -74,6 +74,7 @@ blockquote {
 
 
 
+
 /* INTRO */
 
 .introTitle {
@@ -122,10 +123,10 @@ blockquote {
 
 
 
+
 /* SECTIONS */
 
 .allSections {
-    height: 90vh;
     display: flex;
     display: -webkit-flex;
     display: -ms-flex;
@@ -141,19 +142,9 @@ blockquote {
     flex-flow: column nowrap;
     -webkit-flex-flow: column nowrap;
     -ms-flex-flow: column nowrap;
-    overflow: auto;
-    scroll-snap-type: y mandatory;
-    -webkit-scroll-snap-type: y mandatory;
-    -ms-scroll-snap-type: y mandatory;
 }
 
 .sectionsWrap {
-    scroll-snap-align: center;
-    -webkit-scroll-snap-align: center;
-    -ms-scroll-snap-align: center;
-    flex: none;
-    -webkit-flex: none;
-    -ms-flex: none;
     height: 90%;
     border-bottom: 1px #fff solid;
     width: 100%;
@@ -483,6 +474,7 @@ blockquote {
 
 
 
+
 /* ADMIN SECTION */
 
 .iDK {
@@ -630,6 +622,7 @@ blockquote {
 .adminSubmission button:hover {
     opacity: 0.7;
 }
+
 
 
 
@@ -850,6 +843,7 @@ blockquote {
 
 
 
+
 /* ACCOUNT */
 
 .accountWrap {
@@ -862,7 +856,7 @@ blockquote {
 }
 
 .signinWrap {
-    width: 350px;
+    max-width: 350px;
     padding: 20px;
     margin: 20px auto;
     background-color: #fff;
@@ -914,6 +908,7 @@ blockquote {
     cursor: pointer;
     font-size: 11px;
 }
+
 
 
 
@@ -1093,6 +1088,7 @@ blockquote {
 
 
 
+
 /* SUPER PAGE */
 
 .superInfo {
@@ -1132,6 +1128,7 @@ blockquote {
 .switch button.extra {
     background-color: green;
 }
+
 
 
 
@@ -1248,6 +1245,7 @@ blockquote {
 .miniNav p:hover {
     background-color: #002b35;
 }
+
 
 
 
@@ -1420,6 +1418,7 @@ blockquote {
 
 
 
+
 /* FULL TT */
 
 .ferrySchedule .timeTableWrap {
@@ -1463,6 +1462,7 @@ blockquote {
     background-color: #3F9EC2;
 }
 
+
 /*  FILTER  */
 
 .filterWrap {
@@ -1502,6 +1502,7 @@ blockquote {
 .filterLip:hover {
     opacity: 0.7;
 }
+
 
 
 
@@ -1737,7 +1738,7 @@ blockquote {
     width: 100%;
 }
 
-.articleWrap h2 {
+.articleWrap .articleTitle {
     color: #ecbd63;
     margin: 0;
     font-size: 50px;
@@ -1748,6 +1749,7 @@ blockquote {
     margin: 0;
     text-transform: none;
 }
+
 
 
 /* PROPERTY */
@@ -1884,7 +1886,7 @@ blockquote {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px 5px;
     z-index: 130;
     overflow: auto;
@@ -1901,7 +1903,7 @@ blockquote {
     overflow: hidden;
 }
 
-.active  .showProperty{
+.active .showProperty {
     height: inherit;
     width: inherit;
     max-width: 900px;
@@ -2027,6 +2029,15 @@ blockquote {
     .casing.active {
         top: 0px;
     }
+    .sectionImg {
+        height: 250px;
+
+    }
+
+    .section {
+        width: 250px;
+        margin: 0 5px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2063,6 +2074,3 @@ blockquote {
         font-size: 70px;
     }
 }
-
-
-

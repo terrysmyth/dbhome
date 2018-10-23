@@ -1,7 +1,7 @@
 <div class="newsLandingWrap" ng-controller="newsCtrl">
 	<h2>DB NEWS</h2>
 	<div class="newsLandingInner">
-		<a href="#!/news" ng-click="selectArticle(article)" ng-repeat="article in articles | limitTo: 20">
+		<a href="#!/news" ng-click="selectArticle(article)" ng-repeat="article in articles | limitTo: 20" ng-if="article.published == true">
 			<div class="newLWrap" style="background-image: url({{article.backgroundUrl}})">
 				<div class="newLInfo">
 					<h3>{{article.title}}</h3>

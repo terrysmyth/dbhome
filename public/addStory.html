@@ -5,6 +5,19 @@
 		ng-click="readyImg()">
 		<input type="text" name="" placeholder="SUBTITLE:" ng-model="newStory.subtitle">
 	</div>
+	<label>
+		Tag
+		<select ng-model="newStory.tag">
+			<option value="Health">Health</option>
+			<option value="Food">Food</option>
+			<option value="Technology">Technology</option>
+			<option value="Lifestyle">Lifestyle</option>
+			<option value="Pets">Pets</option>
+			<option value="Education">Education</option>
+			<option value="Enviornment">Enviornment</option>
+			<option value="Economics">Economics</option>
+		</select>
+	</label>
     <div simditor ng-model="newStory.article" id="editable"></div>
     <label class="articleImgBtn" ng-show="newStory.title">
     	Add Photo +

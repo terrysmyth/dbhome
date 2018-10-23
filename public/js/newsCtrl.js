@@ -85,6 +85,7 @@
                      body: article.article,
                      backgroundUrl: backgroundUrl,
                      owner: user.uid,
+                     tag: article.tag,
                      published: false
                  });
                  $window.location.href = '/#!/home';

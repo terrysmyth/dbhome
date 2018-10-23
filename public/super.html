@@ -27,5 +27,29 @@
                 </tr>
             </table>
         </div>
+        <!-- COMPANY LIST -->
+        <div class="superInfoInner">
+            <h3>All News (Review)</h3>
+            <table style="width:100%" class="superCompanyList">
+                <tr>
+                    <th>Article Owner</th>
+                    <th>Date</th>
+                    <th>Published</th>
+                </tr>
+                <tr class="superCompany" ng-repeat="article in articles">
+                    <td><a href="#!/news" ng-click="selectArticle(article)" >{{article.author}}</a>:</td>
+                    <td>{{article.date}}</td>
+                    <td>
+                        <label class="switch">
+                            <button ng-click="publishA(false, article, user)" 
+                            ng-class="{'extra': !article.published }">Unpublished</button>
+
+                            <button ng-click="publishA(true, article, user)" 
+                            ng-class="{'extra': article.published}">Published</button>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

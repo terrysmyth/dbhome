@@ -90,7 +90,7 @@
                     <label>
                         Choose a company:
                         <select ng-model="newPromo.company">
-                            <option ng-repeat="company in profileCompanies" ng-value="{{company}}">{{company.name}}</option>
+                            <option ng-repeat="company in profileCompanies" ng-value="{{company}}" ng-show="company.published">{{company.name}}</option>
                         </select>
                     </label>
                     <label>
@@ -136,7 +136,7 @@
                     <label>
                         Choose a company:
                         <select ng-model="newMonth.company">
-                            <option ng-repeat="company in profileCompanies" ng-value="{{company}}">{{company.name}}</option>
+                            <option ng-repeat="company in profileCompanies" ng-value="{{company}}" ng-show="company.published">{{company.name}}</option>
                         </select>
                     </label>
                     <label>

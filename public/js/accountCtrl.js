@@ -148,6 +148,20 @@
              database.ref("companies/" + promo.company + "-" + promo.owner + "/" + "months/" + promo.month + "/").remove();
          }
 
+          // GET ALL NEWS 
+         var articles = firebase.database().ref('articles/');
+         var getArticles = $firebaseArray(articles);
+         $scope.articles = getArticles;
+         // SELECTED ARTICLE
+         $scope.selectArticle = function(article) {
+            $rootScope.selectedArticle = article; 
+            $rootScope.selectedArticle.body = $sce.trustAsHtml(article.body);
+         }
+         // PUBLISH NEWS 
+         $scope.publishA = function(i, article, user) {
+             database.ref("articles/" + article.title + "-" + article.owner + "/published").set(i);
+         }
+
 
 
 
