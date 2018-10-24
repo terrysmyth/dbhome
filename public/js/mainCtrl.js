@@ -9,13 +9,14 @@
 
          // SelectCOMPANY
          $scope.selectCompany = function(company) {
-             $scope.selectedCompany = company;
+             $rootScope.selectedCompany = company;
          }
 
          $scope.selectPromo = function(companyName, companyOwner) {
+            console.log('companies/' + companyName + "-" + companyOwner + "/")
              var selectedCompany = firebase.database().ref('companies/' + companyName + "-" + companyOwner + "/");
              selectedCompany = $firebaseObject(selectedCompany);
-             selectedCompany.$bindTo($scope, "selectedCompany");
+             $rootScope.selectedCompany = selectedCompany;
          }
 
          // GOTO

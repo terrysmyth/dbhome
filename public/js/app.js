@@ -100,6 +100,13 @@ app.directive('uploadphoto', function() {
     }
 });
 
+app.directive('footsie', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/footsie.html'
+    }
+});
+
 app.config(function($stateProvider) {
     var home = {
         name: 'home',
