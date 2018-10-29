@@ -5,6 +5,9 @@
          // Current User *********************************************************************
          var user = firebase.auth().currentUser;
 
+         $rootScope.logoDone = false;
+         $rootScope.bckDone = false;
+
          let file;
          let file2;
          let downloadLogo;
@@ -16,7 +19,8 @@
              file;
              // Listen for file selection
              fileButton.addEventListener("change", function() {
-                 console.log("SDF")
+                 $rootScope.logoDone = true;
+                 console.log("SDF");
                  file = fileButton.files[0];
                  // RESIZING!
                  ImageTools.resize(this.files[0], {
@@ -28,7 +32,7 @@
                      document.getElementById('previewLogo').style.backgroundImage = "url(" + url + ")";
                      // you can also now upload this blob using an XHR.
                      file = blob;
-
+                     
                  });
 
              });
@@ -38,6 +42,8 @@
              file2;
              // Listen for file selection
              fileButton2.addEventListener("change", function() {
+                 console.log("dfdf");
+                 $rootScope.bckDone = true;
                  file2 = fileButton2.files[0];
                  // RESIZING!
                  ImageTools.resize(this.files[0], {
@@ -49,15 +55,14 @@
                      document.getElementById('preview').style.backgroundImage = "url(" + url + ")";
                      // you can also now upload this blob using an XHR.
                      file2 = blob;
-
                  });
 
              });
          }
 
-
          // SAVE NEW COMPANY
          $scope.saveCompany = (company) => {
+             company.name = company.name.replace(/[~`@.!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/gi, '');
              var storageRef = firebase.storage().ref();
              // UPLOAD IMAGE FIRST
              var uploadTask = storageRef.child('companies/' + company.name + "-" + user.uid + "/logo/").put(file);
@@ -134,6 +139,7 @@
                  company.subCategory = [];
              }
 
+             console.log(company.name)
              newCompanyO.name = company.name;
              newCompanyO.email = company.email;
              newCompanyO.phone = company.phone;

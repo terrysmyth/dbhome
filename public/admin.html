@@ -7,17 +7,26 @@
         <!-- CREATE BUSINESS -->
         <div class="createBusiness adminSection">
             <div class="adminInner">
-                <h3>GENERAL:</h3>
+                <h3>GENERAL: <span>mandatory</span></h3>
                 <input type="text" name="" placeholder="COMPANY NAME:" ng-model="newCompany.name" ng-click="readyImg()">
                 <input type="email" name="" placeholder="COMPANY EMAIL:" ng-model="newCompany.email">
                 <input type="number" name="" placeholder="COMPANY PHONE:" ng-model="newCompany.phone">
                 <input type="text" name="" placeholder="COMPANY ADDRESS:" ng-model="newCompany.address">
             </div>
-            <div class="adminInner">
-                <h3>ONLINE CONTENT (optional)</h3>
-                <input type="text" name="" placeholder="COMPANY WEBSITE:" ng-model="newCompany.website">
-                <input type="text" name="" placeholder="COMPANY FACEBOOK:" ng-model="newCompany.facebook">
-                <input type="text" name="" placeholder="COMPANY INSTAGRAM:" ng-model="newCompany.instagram">
+            <div class="adminInner online">
+                <h3>ONLINE CONTENT: <span>optional</span></h3>
+                <label>
+                    No 'http://' - e.g 'www.example.com'
+                    <input type="text" name="" placeholder="COMPANY WEBSITE:" ng-model="newCompany.website">
+                </label>
+                <label>
+                    Just the tag - e.g '/dbhomeasia'
+                    <input type="text" name="" placeholder="COMPANY FACEBOOK:" ng-model="newCompany.facebook">
+                </label>
+                <label>
+                    Just the handle - e.g '@dbhomeasia'
+                    <input type="text" name="" placeholder="COMPANY INSTAGRAM:" ng-model="newCompany.instagram">
+                </label>
             </div>
             <div class="adminInner">
                 <h3>ABOUT</h3>
@@ -93,11 +102,18 @@
             <photo ng-show="newCompany.category.photo"></photo>
             <adultsedu ng-show="newCompany.category.adultsEdu"></adultsedu>
             <adultssport ng-show="newCompany.category.adultsSport"></adultssport>
-            <uploadphoto></uploadphoto>
+            <uploadphoto ng-show="newCompany.name"></uploadphoto>
         </div>
         <div class="adminSubmission">
             <p>**Upon submission you are agreeing to the Terms & Conditions of DB HOME listings. Your submission will be reviewed before published. Thank you.</p>
             <h3 ng-hide="newCompany.name && newCompany.phone && newCompany.email && newCompany.description && newCompany.category">Please fill in more details before submission.</h3>
+            <ul>
+                <li ng-class="{'active': newCompany.name }">Company Name: {{newCompany.name}}</li>
+                <li ng-class="{'active': newCompany.phone }">Phone: {{newCompany.phone}}</li>
+                <li ng-class="{'active': newCompany.email }">Email: {{newCompany.email}}</li>
+                <li ng-class="{'active': newCompany.address }">Address: {{newCompany.address}}</li>
+                <li ng-class="{'active': newCompany.description }">Description: <span ng-show="newCompany.description">Done</span></li>
+            </ul>
             <button ng-show="newCompany.name && newCompany.phone && newCompany.email && newCompany.description && newCompany.category" ng-click="saveCompany(newCompany)">SUBMIT COMPANY</button>
         </div>
     </div>

@@ -9,6 +9,20 @@ app.directive('navbar', function() {
     }
 });
 
+app.directive('sb', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/sb.html'
+    }
+});
+
+app.directive('tc', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/tc.html'
+    }
+});
+
 app.directive('filter', function() {
     return {
         restrict: 'E',

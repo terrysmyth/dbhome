@@ -1,0 +1,48 @@
+<div class="ferrySchedule" ng-class="{'active': sbCtrl }" ng-controller="sbCtrl">
+    <div class="currentTime">
+        <p>Current time: <span id="time3"></span></p>
+    </div>
+    <div class="ferryWrapper">
+        <div class="ferryWrap db">
+            <div class="titles">
+                <h2>From DB Marina</h2>
+            </div>
+            <div class="ferryTime next"><span id="nextSb"></span></div>
+            <div class="ferryTime next1"><span id="nextSb2"></span></div>
+            <div class="ferryTime next2"><span id="nextSb3"></span></div>
+            <div class="ferryTime next3"><span id="nextSb4"></span></div>
+            <div class="ferryTime next4"><span id="nextSb5"></span></div>
+            <div class="titles">
+                <p class="from">DB</p>
+                <p class="untilNext">UNTIL NEXT:</p>
+                <h4><span id="untilNextSb"></span>mins</h4>
+            </div>
+        </div>
+        <div class="ferryWrap central">
+            <div class="titles">
+                <h2>From Sunny Bay</h2>
+            </div>
+            <div class="ferryTime next"><span id="nextSbC"></span></div>
+            <div class="ferryTime next1"><span id="nextSbC2"></span></div>
+            <div class="ferryTime next2"><span id="nextSbC3"></span></div>
+            <div class="ferryTime next3"><span id="nextSbC4"></span></div>
+            <div class="ferryTime next4"><span id="nextSbC5"></span></div>
+            <div class="titles">
+                <p class="from">SB</p>
+                <p class="untilNext">UNTIL NEXT:</p>
+                <h4><span id="untilNextSbC"></span>mins</h4>
+            </div>
+        </div>
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+    <div class="timeTableWrap">
+        <div class="fullTT dbTT">
+            <h3>FROM DB</h3>
+            <table id="fromSbDbTT"></table>
+        </div>
+        <div class="fullTT cntrlTT">
+            <h3>FROM SB</h3>
+            <table id="fromSbTT"></table>
+        </div>
+    </div>
+</div>

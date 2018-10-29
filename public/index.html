@@ -37,16 +37,24 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body ng-init="navCtrl = false; transCtrl = false; airportCtrl = false">
+<body ng-init="navCtrl = false; transCtrl = false; airportCtrl = false; tcCtrl = false; sbCtrl = false">
     <i class="material-icons openNavBtn" ng-click="navCtrl = !navCtrl">dehaze</i>
     <ferry></ferry>
     <airport></airport>
+    <tc></tc>
+    <sb></sb>
     <div class="transportWrap">
-        <div class="transport ferry" ng-click="transCtrl = !transCtrl; airportCtrl = false">
+        <div class="transport ferry" ng-click="transCtrl = !transCtrl; airportCtrl = false; tcCtrl = false; sbCtrl = false">
             <i class="material-icons">directions_boat</i>
         </div>
-        <div class="transport ferry" ng-click="airportCtrl = !airportCtrl; transCtrl = false">
+        <div class="transport ferry" ng-click="airportCtrl = !airportCtrl; transCtrl = false; tcCtrl = false; sbCtrl = false">
             <i class="material-icons">local_airport</i>
+        </div>
+        <div class="transport ferry" ng-click="sbCtrl = !sbCtrl; transCtrl = false; airportCtrl = false; tcCtrl = false">
+            SB
+        </div>
+        <div class="transport ferry" ng-click="tcCtrl = !tcCtrl; transCtrl = false; airportCtrl = false; sbCtrl = false">
+            TC
         </div>
     </div>
     <navbar></navbar>
@@ -96,6 +104,8 @@
     <script type="text/javascript" src="js/airportCtrl.js"></script>
     <script type="text/javascript" src="js/newsCtrl.js"></script>
     <script type="text/javascript" src="js/propertyCtrl.js"></script>
+    <script type="text/javascript" src="js/tcCtrl.js"></script>
+    <script type="text/javascript" src="js/sbCtrl.js"></script>
     <!-- other libs -->
     <script src="js/editor/simditor-all.js"></script>
     <script src="js/editor/angular-editor.js"></script>
