@@ -55,7 +55,6 @@
                  getCompanies = $firebaseArray(getCompanies);
                  $rootScope.profileCompanies = getCompanies;
 
-
                  // GO HOME
                  $window.location.href = '/#!/home'
              } else {
