@@ -95,13 +95,14 @@
                     </label>
                     <label>
                         Title:
-                        <input ng-model="newPromo.title" type="text" name="" placeholder="Title of Promotion" maxlength="15">
+                        <input ng-model="newPromo.title" type="text" name="" placeholder="Title of Promotion" maxlength="20">
                     </label>
                     <label>
                         Info:
                         <textarea ng-model="newPromo.body" placeholder="" maxlength="50"></textarea>
                     </label>
                     <button ng-click="createPromo(newPromo, user)" ng-show="newPromo.day && newPromo.company && newPromo.title && newPromo.body">Create Daily Deal</button>
+                   <p class="caption">**If you spam too many of the same deals, you will be disallowed to create promotions.</p>
                 </div>
             </div>
             <div class="profileInfoInner">
@@ -148,6 +149,7 @@
                         <textarea ng-model="newMonth.body" placeholder="" maxlength="80"></textarea>
                     </label>
                     <button ng-click="createMonth(newMonth, user)" ng-show="newMonth.month && newMonth.company && newMonth.title && newMonth.body">Create Monthly Deal</button>
+                    <p class="caption">**If you spam too many of the same deals, you will be disallowed to create promotions.</p>
                 </div>
             </div>
         </div>

@@ -182,6 +182,9 @@ app.config(function($routeProvider) {
         .when("/property", {
             templateUrl: "property.html",
         })
+        .when("/events", {
+            templateUrl: "events.html",
+        })
         .otherwise({
             redirectTo: '/home'
         });

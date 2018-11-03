@@ -7,7 +7,6 @@
          $http.get("https://spreadsheets.google.com/feeds/list/1fb2ypIwqjhdMCtIcSlgptZKUYhB4zPO4W2n7OrEt4wQ/od6/public/values?alt=json")
              .then(function(response) {
                  $scope.allProperty = response.data.feed.entry;
-                 console.log(response.data.feed.entry)
              });
 
              $scope.propertyFilter = {

@@ -1,0 +1,68 @@
+<div class="eventsWrap" ng-controller="eventCtrl">
+	<h2 ng-click="hello()">DB | EVENTS</h2>
+	<div class="createEvent" ng-show="user" ng-init="showNewEvent = false">
+		<p ng-click="showNewEvent = !showNewEvent"><i class="material-icons">library_add</i>Create Event</p>
+		<div class="newEvent" ng-class="{'active': showNewEvent}">
+			<label>
+				Date:
+				<input type="date" name="" ng-model="newEvent.date">
+			</label>
+			<input type="text" name="" ng-model="newEvent.title" placeholder="Name of Event" maxlength="50">
+			<input type="text" name="" ng-model="newEvent.location" placeholder="Location" maxlength="50">
+			<label>
+				'www.eventinfo.com'
+				<input type="text" name="" ng-model="newEvent.link" placeholder="Link" maxlength="50">
+			</label>
+			<textarea ng-model="newEvent.body" placeholder="Extra Info" maxlength="100"></textarea>
+			<button 
+			class="submitBtn" 
+			ng-show="newEvent.date && newEvent.title && newEvent.location && newEvent.link && newEvent.body"
+			ng-click="makeEvent(newEvent, user)">Create Event</button>
+		</div>
+	</div>
+	<!-- LOOP THROUGH MONTHS of Current year -->
+	<h3>{{year}}</h3>
+	<div class="eventMonth" ng-repeat="eventM in eventMs">
+		<h3>{{eventM}}</h3>
+		<div class="event"
+		ng-if="event.month == eventM && event.year == year" 
+		ng-repeat="event in events | orderBy:'day'" ng-class="{'first': $index == 0}">
+			<p class="deleteEvent"
+			ng-show="user && user.uid == event.owner || profile.role == 'admin'" 
+			ng-click="deleteEvent(event,user)">Delete</p>
+			<p>{{event.date}}</p>
+			<p>{{event.title}}</p>
+			<p>{{event.location}}</p>
+			<p><a href="http://{{event.link}}" target="_blank">More Info</a></p>
+			<i 
+			ng-init="showEvent == false"
+			ng-click="showEvent = !showEvent" 
+			class="material-icons">
+			keyboard_arrow_down</i> <!--down arrow -->
+			<p class="eventBody" ng-show="showEvent == true">{{event.body}}</p>
+		</div>
+	</div>
+
+	<!-- NEXT year -->
+	<h3>{{year+1}}</h3>
+	<div class="eventMonth" ng-repeat="eventM in eventMs">
+		<h3>{{eventM}}</h3>
+		<div class="event" 
+		ng-if="event.month == eventM && event.year == year+1" 
+		ng-repeat="event in events | orderBy:'day'">
+			<p class="deleteEvent"
+			ng-if="user && user.uid == event.owner || profile.role == 'admin'" 
+			ng-click="deleteEvent(event,user)">Delete</p>
+			<p>{{event.date}}</p>
+			<p>{{event.title}}</p>
+			<p>{{event.location}}</p>
+			<p><a href="http://{{event.link}}" target="_blank">More Info</a></p>
+			<i 
+			ng-init="showEvent == false"
+			ng-click="showEvent = !showEvent" 
+			class="material-icons">
+			keyboard_arrow_down</i> <!--down arrow -->
+			<p class="eventBody" ng-show="showEvent == true">{{event.body}}</p>
+		</div>
+	</div>
+</div>

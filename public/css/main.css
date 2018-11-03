@@ -906,29 +906,45 @@ blockquote {
     display: flex;
     display: -webkit-flex;
     display: -ms-flex;
-    background-color: green;
-    color: #fff;
+    background-color: #fff;
     justify-content: space-between;
     justify-content: -webkit-space-between;
     justify-content: -ms-space-between;
-    padding: 10px 5px 10px 0px;
     align-items: center;
     -webkit-align-items: center;
     -ms-align-items: center;
     margin: 2px;
+    border:2px green solid;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .currentDeals p {
-    color: #fff;
+    color: #585858;
     margin: 0;
     padding: 0 10px;
     font-size: 11px;
+    padding: 10px;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+}
+
+.currentDeals p:nth-child(odd) {
+    background-color: #f5f5f5;
 }
 
 .currentDeals button {
     border: 0;
     cursor: pointer;
     font-size: 11px;
+    background-color: #ff5a5a;
+    color: #fff;
+    padding: 10px;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    width: 60px;
 }
 
 
@@ -1098,10 +1114,15 @@ blockquote {
     color: #fff;
     cursor: pointer;
     display: block;
+    margin: 10px 0;
 }
 
 
-
+.dealCreator .caption {
+    color: #eb0000;
+    padding: 20px;
+    line-height: 18px;
+}
 
 
 
@@ -1652,6 +1673,13 @@ blockquote {
     -ms-align-items: center;
 }
 
+.addStory input {
+    display: block;
+    border: 0;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
 #editable {
     min-height: 300px;
     max-width: 550px;
@@ -1968,7 +1996,7 @@ blockquote {
 .showProperty {
     width: 0px;
     height: 0px;
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 0px transparent;
@@ -1979,7 +2007,7 @@ blockquote {
 .active .showProperty {
     height: inherit;
     width: inherit;
-    max-width: 900px;
+    max-width: 600px;
     box-shadow: 0 0 40px black;
     padding: 20px;
 }
@@ -2017,8 +2045,205 @@ blockquote {
     border-radius: 50%;
     box-shadow: 0 0 20px black;
     cursor: pointer;
+    font-size: 15px;
 }
 
+.headlandLink {
+    border: 2px red solid;
+    color: red;
+    padding: 2px 15px;
+    border-radius: 5px;
+    float: right;
+    font-family: 'Passion One', cursive;
+}
+
+/* EVENTS PAGE */
+
+.eventsWrap {
+    max-width: 900px;
+    width: 100%;
+    margin: 55px auto 100px;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.eventMonth {
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    padding: 0 10px;
+}
+
+.eventMonth h3 {
+    position: absolute;
+}
+
+.createEvent p {
+    background-color: green;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.createEvent i {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.createEvent p:hover {
+    opacity: 0.7;
+}
+
+.newEvent {
+    background-color: green;
+    padding: 0px;
+    color: #fff;
+    border-radius: 5px;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    height: 0;
+    overflow: hidden;
+}
+
+.newEvent.active {
+    height: inherit;
+    padding: 20px;
+}
+
+.newEvent label {
+    color: #fff;
+    display: block;
+}
+
+.newEvent input,
+.newEvent textarea {
+    border: 0;
+    padding: 5px 10px;
+    display: block;
+    margin: 10px 0;
+    width: 200px;
+}
+
+.newEvent textarea {
+    height: 100px;
+    max-height: 100px;
+    min-height: 100px;
+}
+
+.newEvent button {
+    border: 0;
+    background-color: #ecbd63;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.event {
+    background-color: #016981;
+    color: #fff;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/*.event.first {
+    margin-top: 32px;
+}*/
+
+.eventMonth .event:nth-child(5n-3) {
+    margin-top: 32px;
+}
+
+
+.event p {
+    color: #fff;
+    margin: 0 10px;
+    min-width: 150px;
+}
+
+.event i {
+    color: #fff;
+    cursor: pointer;
+}
+
+.event .eventBody {
+    width: 100%;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.event .deleteEvent {
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 50px;
+    margin: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+/* ALERTIFY */
+
+.alertify .ajs-dialog {
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.alertify .ajs-body .ajs-content {
+    color:#fff;
+}
+
+.alertify .ajs-header {
+    background-color: green;
+    color: #fff;
+}
+
+.alertify .ajs-footer {
+    background-color: green;
+    color: #fff;
+}
+
+.ajs-button.ajs-ok {
+    border: 0;
+    background-color: #fff;
+    color: green;
+}
+
+.ajs-button.ajs-cancel {
+    background-color: #fff;
+    border: 0;
+    color: red;
+}
+
+.alertify-notifier.ajs-bottom.ajs-right {
+    color: #fff;
+}
 
 @media only screen and (max-width: 800px) {
     .introTitle {
@@ -2118,8 +2343,13 @@ blockquote {
 }
 
 @media only screen and (max-width: 600px) {
+
+    .headlandLink {
+        float: none;
+    }
+
     .miniNav {
-        height: 100px;
+        height: inherit;
     }
 
     .categoryPageWrap.extra {
