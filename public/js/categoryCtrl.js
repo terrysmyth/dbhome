@@ -83,7 +83,10 @@
              } else if (category == "news") {
                  $rootScope.subCategories = null;
 
-             } else if (category == "kidsSport") {
+             } else if (category == "home") {
+                 $rootScope.subCategories = null;
+
+             }else if (category == "kidsSport") {
                  $rootScope.subCategories = [{
                          original: "tots",
                          show: "Babies & Tots"
@@ -93,7 +96,7 @@
                          show: "Dance"
                      },
                      {
-                         original: "fitness",
+                         original: "multi",
                          show: "Fitness"
                      },
                      {
