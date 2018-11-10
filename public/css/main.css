@@ -377,6 +377,8 @@ blockquote {
 
 .sectionInfo p {
     color: #fff;
+    background-color: #2a6981;
+    padding-bottom: 5px;
 }
 
 .sectionsWrap.months {
@@ -2172,6 +2174,10 @@ blockquote {
 
 .eventMonth .event:nth-child(5n-3) {
     margin-top: 32px;
+}
+
+.eventMonth .event:nth-child(odd) {
+    background-color: #1c90ab;
 }
 
 
