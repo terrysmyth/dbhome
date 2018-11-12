@@ -1849,6 +1849,7 @@ blockquote {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 20px;
 }
 
 .articleWrap blockquote {
@@ -1863,6 +1864,7 @@ blockquote {
 .articleWrap .notice {
     font-style: italic;
     font-size: 12px;
+    margin-top: 50px;
 }
 
 .articleWrap table {
