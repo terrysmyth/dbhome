@@ -1,3 +1,4 @@
+<button ng-click="back()" class="backBtn">BACK</button>
 <div class="selectedWrap">
     <div class="overlay"></div>
     <div class="selectedInner" ng-init="edit = false">
@@ -77,6 +78,7 @@
         <label class="commitBtn" id="commitBck" style="display: none;" ng-click="saveBck(selectedCompany, user)">Commit Change</label>
     </div>
 </div>
+<button ng-click="back()" class="backBtn">BACK</button>
 <div class="selectedWrap" ng-if="selectedCompany.promotions">
     <div class="selectedInner promo">
         <h3>Deals/Promotions:</h3>

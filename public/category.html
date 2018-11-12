@@ -32,7 +32,7 @@
             <div class="sections">
                 <div class="section" 
                 ng-repeat="company in companies " 
-                ng-if="company.category[chosenCategory] == true" 
+                ng-if="company.category[chosenCategory] == true && company.published" 
                 ng-click="selectCompany(company)">
                     <a href="#!/selectedCompany">
                         <div class="sectionImages">

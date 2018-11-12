@@ -1,3 +1,4 @@
+<button ng-click="back()" class="backBtn">BACK</button>
 <div class="newsLandingWrap" ng-controller="newsCtrl">
     <div class="articleWrap">
         <h2 class="articleTitle">{{selectedArticle.title}}</h2>
@@ -9,3 +10,4 @@
     </div>
     <button class="deleteBtn" ng-click="deleteArticle(selectedArticle, user)" ng-show="selectedArticle.owner == user.uid">Delete Article</button>
 </div>
+<button ng-click="back()" class="backBtn">BACK</button>

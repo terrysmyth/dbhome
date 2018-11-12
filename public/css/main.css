@@ -109,11 +109,29 @@ blockquote {
 
 .introTitle .navAccount {
     margin-left: auto;
+    border: 1px #fff solid;
+    padding: 3px 15px;
+    border-radius: 2px;
+}
+
+.introTitle .logout {
+    background-color: red;
+    padding: 3px 10px;
+    border-radius: 2px;
 }
 
 .closeNavBtn,
 .openNavBtn {
     display: none;
+}
+
+.mobileNav {
+    display: none;
+}
+
+.mobileNav h1 {
+    color: #ecbd63;
+    padding: 0 10px;
 }
 
 
@@ -145,7 +163,7 @@ blockquote {
 }
 
 .sectionsWrap {
-    height: 90%;
+    height: 510px;
     border-bottom: 5px #006981 solid;
     width: 100%;
     padding-top: 60px;
@@ -176,7 +194,7 @@ blockquote {
 }
 
 .sections {
-    height: 70vh;
+    height: 500px;
     display: flex;
     display: -webkit-flex;
     display: -ms-flex;
@@ -659,7 +677,7 @@ blockquote {
 /* SELECTED COMAPNY*/
 
 .selectedWrap {
-    margin: 55px auto 100px;
+    margin: 20px auto 20px;
     background-color: #f5f5f5;
     max-width: 990px;
     padding: 10px;
@@ -856,9 +874,21 @@ blockquote {
     line-height: 16px;
 }
 
+.backBtn {
+    display: block;
+    margin: 20px auto;
+    border: 1px #006981 solid;
+    padding: 2px 20px;
+    border-radius: 5px;
+    background-color: #006981;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
 
-
-
+.backBtn:hover {
+    border-radius: 50px;
+}
 
 
 
@@ -1529,7 +1559,7 @@ blockquote {
 .filter {
     background-color: #ecbd63;
     padding: 10px;
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 9px 10px rgba(0,0,0,0.3);
 }
 
 .filter label {
@@ -1729,9 +1759,9 @@ blockquote {
 .newsLandingWrap {
     max-width: 900px;
     width: 100%;
-    margin: 55px auto 100px;
+    margin: 20px auto 20px;
     background-color: #f5f5f5;
-    padding: 10px;
+    padding: 0 10px 10px;
 }
 
 .newsLandingInner {
@@ -1851,6 +1881,31 @@ blockquote {
     text-transform: none;
 }
 
+.newsFilter {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    background-color: #585858;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.newsFilter p {
+    margin: 3px 5px;
+    padding: 5px 10px;
+    background-color: #006981;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.newsFilter p.active {
+    background-color: green;
+}
+
 
 
 /* PROPERTY */
@@ -1866,14 +1921,13 @@ blockquote {
     flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
 }
 
 .propertyItem {
-    max-width: 400px;
-    min-width: 300px;
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-grow: 1;
+    width: 300px;
     margin: 5px;
     background-color: #fff;
     border-radius: 5px 5px 0 0;
@@ -2301,14 +2355,29 @@ blockquote {
         color: #fff;
         font-size: 40px;
         margin: 0;
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block;
-        background-color: #2a6981;
-        left: 0;
-        text-align: right;
         padding: 8px 15px;
+        margin-left: auto;
+        display: block;
+    }
+
+    .mobileNav {
+        background-color: #2a6981;
+        display: flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        align-items: center;
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .mobileNav h1 {
+        margin: 0;
     }
 
     .sectionsWrap.dining {
@@ -2345,6 +2414,21 @@ blockquote {
     .section {
         width: 250px;
         margin: 0 5px;
+    }
+
+    .introTitle .logout {
+        background-color: red;
+        padding: 10px 20px;
+        border-radius: 0px;
+        margin: 5px;
+    }
+
+    .introTitle .navAccount {
+        border: none;
+        padding: 10px 20px;
+        background-color: #ecbd63;
+        border-radius: 0;
+        margin: 5px;
     }
 }
 

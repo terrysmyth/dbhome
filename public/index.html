@@ -38,7 +38,10 @@
 </head>
 
 <body ng-init="navCtrl = false; transCtrl = false; airportCtrl = false; tcCtrl = false; sbCtrl = false">
-    <i class="material-icons openNavBtn" ng-click="navCtrl = !navCtrl">dehaze</i>
+    <div class="mobileNav" ng-click="navCtrl = !navCtrl">
+        <h1>DBHOME</h1>
+        <i class="material-icons openNavBtn">dehaze</i>
+    </div>
     <ferry></ferry>
     <airport></airport>
     <tc></tc>

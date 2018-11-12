@@ -390,5 +390,10 @@
 
          }
 
+         // BACK FUNCTION
+         $scope.back = function() {
+            window.history.back();
+         }
+
 
      }) //END OF CNTRL

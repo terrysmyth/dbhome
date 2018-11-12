@@ -1,7 +1,18 @@
 <div class="newsLandingWrap" ng-controller="newsCtrl">
+	<div class="newsFilter" ng-init="filter = 'all'">
+		<p ng-click="filter = 'all'" ng-class="{'active': filter == 'all' }">ALL</p>
+		<p ng-click="filter = 'Health'" ng-class="{'active': filter == 'Health' }">Health</p>
+		<p ng-click="filter = 'Food'" ng-class="{'active': filter == 'Food' }">Food</p>
+		<p ng-click="filter = 'Technology'" ng-class="{'active': filter == 'Technology' }">Technology</p>
+		<p ng-click="filter = 'Lifestyle'" ng-class="{'active': filter == 'Lifestyle' }">Lifstyle</p>
+		<p ng-click="filter = 'Pets'" ng-class="{'active': filter == 'Pets' }">Pets</p>
+		<p ng-click="filter = 'Education'" ng-class="{'active': filter == 'Education' }">Education</p>
+		<p ng-click="filter = 'Environment'" ng-class="{'active': filter == 'Environment' }">Environment</p>
+		<p ng-click="filter = 'Economics'" ng-class="{'active': filter == 'Economics' }">Economics</p>
+	</div>
 	<h2>DB NEWS</h2>
 	<div class="newsLandingInner">
-		<a href="#!/news" ng-click="selectArticle(article)" ng-repeat="article in articles | limitTo: 20" ng-if="article.published == true">
+		<a href="#!/news" ng-click="selectArticle(article)" ng-repeat="article in articles | limitTo: 30" ng-if="article.published == true && (article.tag == filter || filter == 'all')">
 			<div class="newLWrap" style="background-image: url({{article.backgroundUrl}})">
 				<div class="newLInfo">
 					<h3>{{article.title}}</h3>
